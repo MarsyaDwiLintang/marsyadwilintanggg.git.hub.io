@@ -65,7 +65,6 @@ a{
 <div class="card">
 <p><b>Nama :</b> Marsya Dwi Lintang</p>
 <p><b>NIM :</b> 251410028</p>
-<p><b>Kelas :</b> SI2AK</p>
 </div>
 
 <h2>Pengertian Enkapsulasi</h2>
@@ -82,37 +81,27 @@ method tertentu seperti getter dan setter.
 <h2>Contoh Program Enkapsulasi Produk</h2>
 
 <div class="card">
-<pre>
-print('Harga Produk: Rp ${produk1.harga.toStringAsFixed(2)}');
 
-// Menggunakan setter untuk memperbarui nilai
-print('\n--- Memperbarui Produk ---');
-produk1.nama = 'Keyboard Mekanik';
-produk1.harga = 1200.0;
+<p>
+Program berikut merupakan contoh penerapan konsep <b>enkapsulasi</b> dalam bahasa pemrograman Dart.
+Enkapsulasi adalah proses menyembunyikan data di dalam sebuah class dan hanya mengizinkan akses melalui method tertentu seperti
+<b>getter</b> dan <b>setter</b>.
+</p>
 
-print('Nama Produk (setelah update): ${produk1.nama}');
-print('Harga Produk (setelah update): Rp ${produk1.harga.toStringAsFixed(2)}');
+<p>
+Pada contoh ini dibuat class <b>Produk</b> yang memiliki atribut <i>nama</i> dan <i>harga</i>.
+Atribut tersebut dibuat private sehingga tidak dapat diakses langsung dari luar class.
+Untuk mengakses dan mengubah nilainya digunakan method getter dan setter.
+</p>
 
-// Menguji validasi setter
-print('\n--- Menguji Validasi Setter ---');
+<p>
+Kode program lengkap dapat dijalankan melalui DartPad pada link berikut:
+</p>
 
-print('Mencoba mengatur nama menjadi "TV"');
-produk1.nama = 'TV';
-print('Nama Produk (setelah gagal update nama): ${produk1.nama}');
-
-print('Mencoba mengatur harga menjadi -100.0');
-produk1.harga = -100.0;
-print('Harga Produk (setelah gagal update harga): Rp ${produk1.harga.toStringAsFixed(2)}');
-
-print('Mencoba mengatur harga menjadi 0.0');
-produk1.harga = 0.0;
-print('Harga Produk (setelah gagal update harga): Rp ${produk1.harga.toStringAsFixed(2)}');
-
-print('\n--- Status Akhir Produk ---');
-print('Nama Produk: ${produk1.nama}');
-print('Harga Produk: Rp ${produk1.harga.toStringAsFixed(2)}');
-}
-</pre>
+<a href="e328a504a71f89b6408f5f33fe6be7af" target="_blank">
+klik di sini untuk menjalankan kodde Dart
+</a>
+    
 </div>
 
 
