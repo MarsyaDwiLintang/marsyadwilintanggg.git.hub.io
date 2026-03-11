@@ -94,10 +94,64 @@ color:white;
 border-radius:8px;
 text-decoration:none;
 font-size:14px;
+cursor:pointer;
 }
 
 .btn:hover{
 background:#008ecc;
+}
+
+/* POPUP */
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.popup-content{
+width:90%;
+max-width:1200px;
+height:85%;
+background:#111;
+border-radius:12px;
+position:relative;
+overflow:hidden;
+}
+
+.popup iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+.close{
+position:absolute;
+top:10px;
+right:18px;
+font-size:30px;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+header h1{
+font-size:30px;
+}
+
+.popup-content{
+height:90%;
+width:95%;
+}
+
 }
 
 </style>
@@ -135,107 +189,128 @@ Enkapsulasi adalah konsep dalam Object Oriented Programming (OOP) yang digunakan
 <p>Constructor adalah method khusus pada class yang digunakan untuk membuat objek dan menginisialisasi nilai awal atribut.</p>
 
 <div class="code-container">
-  <div class="code-header">DART SOURCE CODE</div>
-  <pre><code>// Nama  : Marsya Dwi Lintang
+<div class="code-header">DART SOURCE CODE</div>
+<pre><code>// Nama  : Marsya Dwi Lintang
 // NIM   : 251410028
 // Kelas : SI2A
 
 import 'dart:convert';
 
 class Mobil {
-  String? merk;
-  int? tahun;
+String? merk;
+int? tahun;
 
-  // Parameterized constructor
-  Mobil(this.merk, this.tahun);
+Mobil(this.merk, this.tahun);
 
-  // Named constructor
-  Mobil.baru() {
-    merk = 'Toyota';
-    tahun = 2023;
-  }
+Mobil.baru() {
+merk = 'Toyota';
+tahun = 2023;
+}
 
-  // Named constructor dengan parameter
-  Mobil.dariJson(Map<String, dynamic> json) {
-    merk = json['merk'];
-    tahun = json['tahun'];
-  }
+Mobil.dariJson(Map<String, dynamic> json) {
+merk = json['merk'];
+tahun = json['tahun'];
+}
 
-  @override
-  String toString() {
-    return 'Mobil{merk: $merk, tahun: $tahun}';
-  }
+@override
+String toString() {
+return 'Mobil{merk: $merk, tahun: $tahun}';
+}
 }
 
 void main() {
-  print('--- Demonstrasi Class Mobil ---');
+print('--- Demonstrasi Class Mobil ---');
 
-  var mobilA = Mobil('Honda', 2020);
-  print('Mobil A: $mobilA');
+var mobilA = Mobil('Honda', 2020);
+print('Mobil A: $mobilA');
 
-  var mobilB = Mobil.baru();
-  print('Mobil B: $mobilB');
+var mobilB = Mobil.baru();
+print('Mobil B: $mobilB');
 
-  String jsonString = '{"merk": "Suzuki", "tahun": 2021}';
-  Map<String, dynamic> jsonData = jsonDecode(jsonString);
-  var mobilC = Mobil.dariJson(jsonData);
-  print('Mobil C: $mobilC');
+String jsonString = '{"merk": "Suzuki", "tahun": 2021}';
+Map<String, dynamic> jsonData = jsonDecode(jsonString);
+var mobilC = Mobil.dariJson(jsonData);
+print('Mobil C: $mobilC');
 
-  Map<String, dynamic> anotherJsonData = {'merk': 'Mitsubishi', 'tahun': 2022};
-  var mobilD = Mobil.dariJson(anotherJsonData);
-  print('Mobil D: $mobilD');
-}
-    
-</code></pre>
-    </div>
-    <button class="btn" onclick="openPopup('https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70')">
+Map<String, dynamic> anotherJsonData = {'merk': 'Mitsubishi', 'tahun': 2022};
+var mobilD = Mobil.dariJson(anotherJsonData);
+print('Mobil D: $mobilD');
+} </code></pre>
+
+</div>
+
+<button class="btn" onclick="openPopup('https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70')">
 Lihat DartPad
 </button>
+
 </div>
 
 <div class="card">
 <h2>2. Const Constructor</h2>
 <p>Const constructor digunakan untuk membuat objek konstan sehingga nilai objek tidak dapat diubah setelah dibuat.</p>
-<a class="btn" href="https://dartpad.dev/40cdc2f435ceca07ddaca0c3131d94c6" target="_blank">Lihat DartPad</a>
+<button class="btn" onclick="openPopup('https://dartpad.dev/40cdc2f435ceca07ddaca0c3131d94c6')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>3. Initializer List</h2>
 <p>Initializer list digunakan untuk menginisialisasi variabel sebelum constructor dijalankan.</p>
-<a class="btn" href="https://dartpad.dev/607f6fe45706915f6be46629fb1303c9" target="_blank">Lihat DartPad</a>
+<button class="btn" onclick="openPopup('https://dartpad.dev/607f6fe45706915f6be46629fb1303c9')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>4. Private Variable</h2>
 <p>Private variable adalah variabel yang hanya dapat diakses di dalam class dengan menggunakan tanda underscore (_).</p>
-<a class="btn" href="https://dartpad.dev/adccd4fbb13219cc689274f6de55bf79" target="_blank">Lihat DartPad</a>
+<button class="btn" onclick="openPopup('https://dartpad.dev/adccd4fbb13219cc689274f6de55bf79')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>5. Getter</h2>
 <p>Getter adalah method yang digunakan untuk mengambil nilai dari variabel private.</p>
-<a class="btn" href="https://dartpad.dev/884cf73ac193f066ca179710db4ebc68" target="_blank">Lihat DartPad</a>
+<button class="btn" onclick="openPopup('https://dartpad.dev/884cf73ac193f066ca179710db4ebc68')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>6. Setter</h2>
 <p>Setter adalah method yang digunakan untuk mengubah nilai dari variabel private.</p>
-<a class="btn" href="https://dartpad.dev/29daa42f713a908e2f0a38c69fbcfbe5" target="_blank">Lihat DartPad</a>
+<button class="btn" onclick="openPopup('https://dartpad.dev/29daa42f713a908e2f0a38c69fbcfbe5')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>7. Getter & Setter dengan Validasi</h2>
 <p>Getter dan setter dapat digunakan untuk menambahkan validasi agar data yang dimasukkan sesuai aturan.</p>
-<a class="btn" href="https://dartpad.dev/f7092a32305dd71a0c3bc7877d161677" target="_blank">Lihat DartPad</a>
+<button class="btn" onclick="openPopup('https://dartpad.dev/f7092a32305dd71a0c3bc7877d161677')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>8. Encapsulation (Login System)</h2>
 <p>Encapsulation adalah konsep OOP yang membungkus data dan method dalam satu class serta membatasi akses langsung ke data tersebut.</p>
-<a class="btn" href="https://dartpad.dev/32a23520da0534cdb9edc41e81b2514e" target="_blank">Lihat DartPad</a>
+<button class="btn" onclick="openPopup('https://dartpad.dev/32a23520da0534cdb9edc41e81b2514e')">Lihat DartPad</button>
 </div>
 
 </div>
+
+<!-- POPUP -->
+
+<div id="popup" class="popup">
+<div class="popup-content">
+<span class="close" onclick="closePopup()">×</span>
+<iframe id="dartFrame"></iframe>
+</div>
+</div>
+
+<script>
+
+function openPopup(link){
+document.getElementById("popup").style.display="flex";
+document.getElementById("dartFrame").src=link;
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+document.getElementById("dartFrame").src="";
+}
+
+</script>
 
 </body>
 </html>
