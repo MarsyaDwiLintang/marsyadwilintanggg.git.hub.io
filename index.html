@@ -1,91 +1,188 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<title>Resume OOP Dart - Marsya Dwi Lintang</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP Report - Marsya Dwi Lintang</title>
 
-<style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet">
 
-body{
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top,#1b2a6b,#0f2027,#000428);
-    color:white;
-    margin:0;
-    padding:0;
-}
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
 
-.container{
-    width:85%;
-    margin:auto;
-    padding:30px;
-}
+    body{
+      font-family:'Poppins',sans-serif;
+      color:#f1f1f1;
+      background:#0b3d2e;
+      overflow-x:hidden;
+    }
 
-h1{
-    text-align:center;
-    color:#7fdfff;
-    text-shadow:0 0 10px #00c3ff;
-}
+    /* Nature Background */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, #14532d, transparent 40%),
+        radial-gradient(circle at 80% 70%, #064e3b, transparent 40%),
+        radial-gradient(circle at 50% 50%, #052e16, transparent 60%);
+      z-index:-2;
+    }
 
-h2{
-    color:#00eaff;
-    margin-top:40px;
-}
+    .leaves{
+      position:fixed;
+      inset:0;
+      background-image:
+        radial-gradient(2px 2px at 20% 20%, #bbf7d0, transparent),
+        radial-gradient(2px 2px at 70% 40%, #86efac, transparent),
+        radial-gradient(2px 2px at 40% 80%, #4ade80, transparent);
+      background-size:400px 400px;
+      animation:move 60s linear infinite;
+      z-index:-1;
+    }
 
-.card{
-    background:rgba(255,255,255,0.05);
-    padding:20px;
-    border-radius:12px;
-    margin-top:20px;
-    box-shadow:0 0 15px rgba(0,200,255,0.4);
-}
+    @keyframes move{
+      from{transform:translateY(0);}
+      to{transform:translateY(-400px);}
+    }
 
-pre{
-    background:#0a0f2c;
-    padding:20px;
-    border-radius:10px;
-    overflow:auto;
-    color:#8ffaff;
-    font-size:14px;
-}
+    header{
+      text-align:center;
+      padding:120px 20px 60px;
+    }
 
-button{
-margin-top:30px;
-background:
-linear-gradient(135deg,#00c6ff,#0072ff);
-border:none;
-padding:18px 6-px;
-fount-size:22px;
-border-radius:40px;
-color:white;
-cursor:pointer;
-font-weight:bold;
-display:block;
-margin-left:auto;
-margin-right:auto;
+    header h1{
+      font-size:clamp(2rem,5vw,3.5rem);
+      color:#bbf7d0;
+      margin-bottom:15px;
+      letter-spacing:4px;
+    }
 
-box-shadow:0 0 10px #00c6ff,0 0 20px #0072ff;
-animation : glow 2s infinite alternate;
-}
+    header p{
+      color:#86efac;
+      letter-spacing:2px;
+    }
 
-@keyframes glow{
-from{
-box-shadow:0 0 10px #00c6ff,0 0 20px #0072ff;
-}
-to{
-box-shadow:0 0 25px #00c6ff,0 0 50px #0072ff;
-}
-}
+    .container{
+      max-width:1000px;
+      margin:auto;
+      padding:20px;
+    }
 
-a{
-    color:#00eaff;
-    font-weight:bold;
-}
+    section{
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(20px);
+      border-radius:25px;
+      padding:50px;
+      margin-bottom:90px;
+      opacity:0;
+      transform:translateY(40px);
+      transition:0.8s;
+    }
 
-</style>
+    section.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    h2{
+      color:#bbf7d0;
+      margin-bottom:25px;
+    }
+
+    p{
+      line-height:1.9;
+      margin-bottom:25px;
+      color:#e2e8f0;
+    }
+
+    .code-container{
+      background:#041c15;
+      border-radius:15px;
+      overflow:hidden;
+      margin:25px 0;
+    }
+
+    .code-header{
+      background:#052e16;
+      padding:10px 20px;
+      font-size:0.8rem;
+      color:#86efac;
+    }
+
+    pre{
+      padding:20px;
+      font-size:0.9rem;
+      color:#4ade80;
+      overflow-x:auto;
+    }
+
+    button{
+      padding:14px 40px;
+      border:none;
+      border-radius:30px;
+      background:#22c55e;
+      color:#052e16;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.4s;
+    }
+
+    button:hover{
+      background:#bbf7d0;
+      transform:scale(1.05);
+    }
+
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.9);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+
+    .modal-content{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:90%;
+      height:85%;
+      background:#052e16;
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .modal-content iframe{
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+    .close{
+      position:absolute;
+      right:25px;
+      top:15px;
+      font-size:40px;
+      color:#bbf7d0;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:80px;
+      color:#86efac;
+      font-size:0.9rem;
+    }
+  </style>
 </head>
 
 <body>
-
+    
 <div class="container">
 
 <h1>Resume Materi OOP Dart</h1>
