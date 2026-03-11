@@ -1,342 +1,159 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OOP Report - Marsya Dwi Lintang</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
-    rel="stylesheet">
+<title>Laporan OOP Dart - Marsya</title>
 
-  <style>
-    *{ margin:0; padding:0; box-sizing:border-box; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    body{
-      font-family:'Poppins',sans-serif;
-      color:#f1f1f1;
-      background:#0b3d2e;
-      overflow-x:hidden;
-    }
+<style>
 
-    /* Nature Background */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 30%, #14532d, transparent 40%),
-        radial-gradient(circle at 80% 70%, #064e3b, transparent 40%),
-        radial-gradient(circle at 50% 50%, #052e16, transparent 60%);
-      z-index:-2;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-    .leaves{
-      position:fixed;
-      inset:0;
-      background-image:
-        radial-gradient(2px 2px at 20% 20%, #bbf7d0, transparent),
-        radial-gradient(2px 2px at 70% 40%, #86efac, transparent),
-        radial-gradient(2px 2px at 40% 80%, #4ade80, transparent);
-      background-size:400px 400px;
-      animation:move 60s linear infinite;
-      z-index:-1;
-    }
+body{
+background: linear-gradient(135deg,#020024,#090979,#00d4ff);
+min-height:100vh;
+color:white;
+padding:40px 20px;
+}
 
-    @keyframes move{
-      from{transform:translateY(0);}
-      to{transform:translateY(-400px);}
-    }
+/* Header */
 
-    header{
-      text-align:center;
-      padding:120px 20px 60px;
-    }
+header{
+text-align:center;
+margin-bottom:40px;
+}
 
-    header h1{
-      font-size:clamp(2rem,5vw,3.5rem);
-      color:#bbf7d0;
-      margin-bottom:15px;
-      letter-spacing:4px;
-    }
+header h1{
+font-size:38px;
+font-weight:700;
+letter-spacing:2px;
+}
 
-    header p{
-      color:#86efac;
-      letter-spacing:2px;
-    }
+header p{
+opacity:0.8;
+margin-top:10px;
+}
 
-    .container{
-      max-width:1000px;
-      margin:auto;
-      padding:20px;
-    }
+/* Container */
 
-    section{
-      background:rgba(255,255,255,0.05);
-      backdrop-filter:blur(20px);
-      border-radius:25px;
-      padding:50px;
-      margin-bottom:90px;
-      opacity:0;
-      transform:translateY(40px);
-      transition:0.8s;
-    }
+.container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr;
+gap:30px;
+}
 
-    section.show{
-      opacity:1;
-      transform:translateY(0);
-    }
+/* Card */
 
-    h2{
-      color:#bbf7d0;
-      margin-bottom:25px;
-    }
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter: blur(10px);
+border-radius:15px;
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+transition:0.3s;
+}
 
-    p{
-      line-height:1.9;
-      margin-bottom:25px;
-      color:#e2e8f0;
-    }
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+}
 
-    .code-container{
-      background:#041c15;
-      border-radius:15px;
-      overflow:hidden;
-      margin:25px 0;
-    }
+.card h2{
+margin-bottom:15px;
+font-size:20px;
+color:#9be7ff;
+}
 
-    .code-header{
-      background:#052e16;
-      padding:10px 20px;
-      font-size:0.8rem;
-      color:#86efac;
-    }
+iframe{
+width:100%;
+height:420px;
+border:none;
+border-radius:10px;
+}
 
-    pre{
-      padding:20px;
-      font-size:0.9rem;
-      color:#4ade80;
-      overflow-x:auto;
-    }
+/* Responsive */
 
-    button{
-      padding:14px 40px;
-      border:none;
-      border-radius:30px;
-      background:#22c55e;
-      color:#052e16;
-      font-weight:700;
-      cursor:pointer;
-      transition:0.4s;
-    }
+@media (min-width:900px){
 
-    button:hover{
-      background:#bbf7d0;
-      transform:scale(1.05);
-    }
+.container{
+grid-template-columns:1fr 1fr;
+}
 
-    .modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.9);
-      backdrop-filter:blur(10px);
-      z-index:1000;
-    }
+}
 
-    .modal-content{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      width:90%;
-      height:85%;
-      background:#052e16;
-      border-radius:20px;
-      overflow:hidden;
-    }
+footer{
+margin-top:50px;
+text-align:center;
+opacity:0.7;
+}
 
-    .modal-content iframe{
-      width:100%;
-      height:100%;
-      border:none;
-    }
-
-    .close{
-      position:absolute;
-      right:25px;
-      top:15px;
-      font-size:40px;
-      color:#bbf7d0;
-      cursor:pointer;
-    }
-
-    footer{
-      text-align:center;
-      padding:80px;
-      color:#86efac;
-      font-size:0.9rem;
-    }
-  </style>
+</style>
 </head>
 
 <body>
-    
+
+<header>
+<h1>Laporan OOP Dart</h1>
+<p>Constructor • Getter • Setter • Encapsulation</p>
+</header>
+
 <div class="container">
 
-<h1>Resume Materi OOP Dart</h1>
+<div class="card">
+<h2>1. Constructor Mobil</h2>
+<iframe src="https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70"></iframe>
+</div>
 
 <div class="card">
-<p><b>Nama :</b> Marsya Dwi Lintang</p>
-<p><b>NIM :</b> 251410028</p>
+<h2>2. Const Constructor</h2>
+<iframe src="https://dartpad.dev/40cdc2f435ceca07ddaca0c3131d94c6"></iframe>
 </div>
-
-<h2>Pengertian Enkapsulasi</h2>
 
 <div class="card">
-<p>
-Enkapsulasi adalah konsep dalam Object Oriented Programming (OOP) yang digunakan
-untuk menyembunyikan data dalam sebuah class dan hanya memberikan akses melalui
-method tertentu seperti getter dan setter.
-</p>
+<h2>3. Initializer List</h2>
+<iframe src="https://dartpad.dev/607f6fe45706915f6be46629fb1303c9"></iframe>
 </div>
-
-
-<h2>Contoh Program Enkapsulasi Produk</h2>
 
 <div class="card">
-
-<p>
-Program berikut merupakan contoh penerapan konsep <b>enkapsulasi</b> dalam bahasa pemrograman Dart.
-Enkapsulasi adalah proses menyembunyikan data di dalam sebuah class dan hanya mengizinkan akses melalui method tertentu seperti
-<b>getter</b> dan <b>setter</b>.
-</p>
-
-<p>
-Pada contoh ini dibuat class <b>Produk</b> yang memiliki atribut <i>nama</i> dan <i>harga</i>.
-Atribut tersebut dibuat private sehingga tidak dapat diakses langsung dari luar class.
-Untuk mengakses dan mengubah nilainya digunakan method getter dan setter.
-</p>
-
-<p>
-Kode program lengkap dapat dijalankan melalui DartPad pada link berikut:
-</p>
-
-<h2>DART SOURCE CODE</h2>
-
-<pre>
-class Produk {
-  String _nama;
-  double _harga;
-
-  Produk(this._nama, this._harga);
-
-  String get nama => _nama;
-  double get harga => _harga;
-
-  set nama(String value) {
-    if (value.length >= 3) {
-      _nama = value;
-    } else {
-      print('Nama produk minimal 3 karakter');
-    }
-  }
-
-  set harga(double value) {
-    if (value > 0) {
-      _harga = value;
-    } else {
-      print('Harga harus lebih dari 0');
-    }
-  }
-}
-
-void main() {
-  Produk produk1 = Produk("Keyboard", 500.0);
-
-  print('Nama Produk: ${produk1.nama}');
-  print('Harga Produk: Rp ${produk1.harga}');
-
-  print('\n--- Update Produk ---');
-
-  produk1.nama = "Keyboard Mekanik";
-  produk1.harga = 1200.0;
-
-  print('Nama Baru: ${produk1.nama}');
-  print('Harga Baru: Rp ${produk1.harga}');
-}
-</pre>
-
-<a
-href="https://dartpad.dev/e328a504a71f89b6408f5f33fe6be7af" target="_blank">
-<button>Run Program</button>
-</a>
-    
+<h2>4. Private Variable</h2>
+<iframe src="https://dartpad.dev/adccd4fbb13219cc689274f6de55bf79"></iframe>
 </div>
-
-<h2>Contoh Program Enkapsulasi User</h2>
 
 <div class="card">
-<pre>
-class User {
-String _username;
-String _password;
-
-User(this._username, this._password);
-
-String get username => _username;
-
-bool login(String username, String password) {
-return _username == username && _password == password;
-}
-
-void gantiPassword(String lama, String baru) {
-if (_password == lama) {
-if (baru.length >= 8) {
-_password = baru;
-print('Password berhasil diubah.');
-} else {
-print('Password baru minimal 8 karakter.');
-}
-} else {
-print('Password lama salah.');
-}
-}
-}
-</pre>
+<h2>5. Getter</h2>
+<iframe src="https://dartpad.dev/884cf73ac193f066ca179710db4ebc68"></iframe>
 </div>
-
-
-<h2>Link Program di DartPad</h2>
 
 <div class="card">
-<p>Klik link berikut untuk menjalankan program:</p>
+<h2>6. Setter</h2>
+<iframe src="https://dartpad.dev/29daa42f713a908e2f0a38c69fbcfbe5"></iframe>
+</div>
 
-<a href="MASUKKAN LINK DARTPAD DI SINI" target="_blank">
-Jalankan Program Dart
-</a>
+<div class="card">
+<h2>7. Getter & Setter Validasi</h2>
+<iframe src="https://dartpad.dev/f7092a32305dd71a0c3bc7877d161677"></iframe>
+</div>
+
+<div class="card">
+<h2>8. Encapsulation Login</h2>
+<iframe src="https://dartpad.dev/32a23520da0534cdb9edc41e81b2514e"></iframe>
+</div>
 
 </div>
 
-
-</div>
-
-<div id="dartpad"></div>
-
-<script>
-function runCode(){
-document.getElementById("dartpad").innerHTML =
-
-<iframe
-width="100%"
-height="500"
-src="https://dartpad.dev/e328a504a71f89b6408f5f33fe6be7af"
-frameborder="0">
-</iframe>
-`;
-}
-</script>
+<footer>
+<p>© 2026 OOP Dart Project</p>
+</footer>
 
 </body>
 </html>
