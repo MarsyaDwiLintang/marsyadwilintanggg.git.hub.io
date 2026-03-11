@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Laporan OOP Dart - Marsya Dwi Lintang</title>
+<title>Laporan OOP Dart - Marsya</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -104,95 +104,15 @@ opacity:0.7;
 
 <header>
 <h1>Laporan OOP Dart</h1>
-<p>Marsya Dwi Lintang | 251410028 | SI2A</p>
+<p>Constructor • Getter • Setter • Encapsulation</p>
 </header>
 
 <div class="container">
 
-  <section>
-    <h2>01. Pengertian Enkapsulasi</h2>
-    <p>
-      Enkapsulasi adalah konsep dalam Object Oriented Programming (OOP)yang digunakan untuk menyembunyikan
-      data dan hanya memberikan akses melalui method tertentu.
-    </p>
-
-    <h2>02. Tujuan Enkapsulasi</h2>
-    <p>* Melindungi data
-       * Mengontrol akses data
-       * Membuat program lebih aman
-    Di Dart, enkapsulasi dilakukan dengan:
-       * Private field (_)
-       * Getter
-       * Setter
-    </p>
-    
-  </section>
-
 <div class="card">
-
-<section>
 <h2>1. Constructor Mobil</h2>
-
-<p>
-Constructor adalah method khusus pada class yang digunakan untuk membuat objek dan menginisialisasi nilai awal atribut.
-Dalam Dart terdapat constructor biasa dan named constructor, yaitu constructor dengan nama tertenu yang digunakan untuk membuat objek
-dengan cara atau kondisi yang berbeda.
-</p>
-
-<div class="code-container">
-  <div class="code-header">DART SOURCE CODE</div>
-  <pre><code>// Nama  : Marsya Dwi Lintang
-// NIM   : 251410028
-// Kelas : SI2A
-
-import 'dart:convert';
-
-class Mobil {
-  String? merk;
-  int? tahun;
-
-  // Parameterized constructor
-  Mobil(this.merk, this.tahun);
-
-  // Named constructor
-  Mobil.baru() {
-    merk = 'Toyota';
-    tahun = 2023;
-  }
-
-  // Named constructor dengan parameter
-  Mobil.dariJson(Map<String, dynamic> json) {
-    merk = json['merk'];
-    tahun = json['tahun'];
-  }
-
-  @override
-  String toString() {
-    return 'Mobil{merk: $merk, tahun: $tahun}';
-  }
-}
-
-void main() {
-  print('--- Demonstrasi Class Mobil ---');
-
-  var mobilA = Mobil('Honda', 2020);
-  print('Mobil A: $mobilA');
-
-  var mobilB = Mobil.baru();
-  print('Mobil B: $mobilB');
-
-  String jsonString = '{"merk": "Suzuki", "tahun": 2021}';
-  Map<String, dynamic> jsonData = jsonDecode(jsonString);
-  var mobilC = Mobil.dariJson(jsonData);
-  print('Mobil C: $mobilC');
-
-  Map<String, dynamic> anotherJsonData = {'merk': 'Mitsubishi', 'tahun': 2022};
-  var mobilD = Mobil.dariJson(anotherJsonData);
-  print('Mobil D: $mobilD');
-}
-
-<button onclick="openModal('https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70')">Run Program</button>
-
+<iframe src="https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70"></iframe>
+</div>
 
 <div class="card">
 <h2>2. Const Constructor</h2>
