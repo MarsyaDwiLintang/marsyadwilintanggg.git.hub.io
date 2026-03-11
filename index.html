@@ -101,9 +101,53 @@ Kode program lengkap dapat dijalankan melalui DartPad pada link berikut:
 <a href="https://dartpad.dev/e328a504a71f89b6408f5f33fe6be7af" target="_blank">
 klik di sini untuk menjalankan kodde Dart
 </a>
+
+<h2>DART SOURCE CODE</h2>
+
+<pre>
+class Produk {
+  String _nama;
+  double _harga;
+
+  Produk(this._nama, this._harga);
+
+  String get nama => _nama;
+  double get harga => _harga;
+
+  set nama(String value) {
+    if (value.length >= 3) {
+      _nama = value;
+    } else {
+      print('Nama produk minimal 3 karakter');
+    }
+  }
+
+  set harga(double value) {
+    if (value > 0) {
+      _harga = value;
+    } else {
+      print('Harga harus lebih dari 0');
+    }
+  }
+}
+
+void main() {
+  Produk produk1 = Produk("Keyboard", 500.0);
+
+  print('Nama Produk: ${produk1.nama}');
+  print('Harga Produk: Rp ${produk1.harga}');
+
+  print('\n--- Update Produk ---');
+
+  produk1.nama = "Keyboard Mekanik";
+  produk1.harga = 1200.0;
+
+  print('Nama Baru: ${produk1.nama}');
+  print('Harga Baru: Rp ${produk1.harga}');
+}
+</pre>
     
 </div>
-
 
 <h2>Contoh Program Enkapsulasi User</h2>
 
