@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="id">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -188,58 +189,7 @@ Enkapsulasi adalah konsep dalam Object Oriented Programming (OOP) yang digunakan
 <h2>1. Constructor Mobil</h2>
 <p>Constructor adalah method khusus pada class yang digunakan untuk membuat objek dan menginisialisasi nilai awal atribut.</p>
 
-<div class="code-container">
-<div class="code-header">DART SOURCE CODE</div>
-<pre><code>// Nama  : Marsya Dwi Lintang
-// NIM   : 251410028
-// Kelas : SI2A
-
-import 'dart:convert';
-
-class Mobil {
-String? merk;
-int? tahun;
-
-Mobil(this.merk, this.tahun);
-
-Mobil.baru() {
-merk = 'Toyota';
-tahun = 2023;
-}
-
-Mobil.dariJson(Map<String, dynamic> json) {
-merk = json['merk'];
-tahun = json['tahun'];
-}
-
-@override
-String toString() {
-return 'Mobil{merk: $merk, tahun: $tahun}';
-}
-}
-
-void main() {
-print('--- Demonstrasi Class Mobil ---');
-
-var mobilA = Mobil('Honda', 2020);
-print('Mobil A: $mobilA');
-
-var mobilB = Mobil.baru();
-print('Mobil B: $mobilB');
-
-String jsonString = '{"merk": "Suzuki", "tahun": 2021}';
-Map<String, dynamic> jsonData = jsonDecode(jsonString);
-var mobilC = Mobil.dariJson(jsonData);
-print('Mobil C: $mobilC');
-
-Map<String, dynamic> anotherJsonData = {'merk': 'Mitsubishi', 'tahun': 2022};
-var mobilD = Mobil.dariJson(anotherJsonData);
-print('Mobil D: $mobilD');
-} </code></pre>
-
-</div>
-
-<button class="btn" onclick="openPopup('https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70')">
+<button class="btn" onclick="openPopup('https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70?run=true')">
 Lihat DartPad
 </button>
 
@@ -248,43 +198,43 @@ Lihat DartPad
 <div class="card">
 <h2>2. Const Constructor</h2>
 <p>Const constructor digunakan untuk membuat objek konstan sehingga nilai objek tidak dapat diubah setelah dibuat.</p>
-<button class="btn" onclick="openPopup('https://dartpad.dev/40cdc2f435ceca07ddaca0c3131d94c6')">Lihat DartPad</button>
+<button class="btn" onclick="openPopup('https://dartpad.dev/40cdc2f435ceca07ddaca0c3131d94c6?run=true')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>3. Initializer List</h2>
 <p>Initializer list digunakan untuk menginisialisasi variabel sebelum constructor dijalankan.</p>
-<button class="btn" onclick="openPopup('https://dartpad.dev/607f6fe45706915f6be46629fb1303c9')">Lihat DartPad</button>
+<button class="btn" onclick="openPopup('https://dartpad.dev/607f6fe45706915f6be46629fb1303c9?run=true')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>4. Private Variable</h2>
 <p>Private variable adalah variabel yang hanya dapat diakses di dalam class dengan menggunakan tanda underscore (_).</p>
-<button class="btn" onclick="openPopup('https://dartpad.dev/adccd4fbb13219cc689274f6de55bf79')">Lihat DartPad</button>
+<button class="btn" onclick="openPopup('https://dartpad.dev/adccd4fbb13219cc689274f6de55bf79?run=true')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>5. Getter</h2>
 <p>Getter adalah method yang digunakan untuk mengambil nilai dari variabel private.</p>
-<button class="btn" onclick="openPopup('https://dartpad.dev/884cf73ac193f066ca179710db4ebc68')">Lihat DartPad</button>
+<button class="btn" onclick="openPopup('https://dartpad.dev/884cf73ac193f066ca179710db4ebc68?run=true')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>6. Setter</h2>
 <p>Setter adalah method yang digunakan untuk mengubah nilai dari variabel private.</p>
-<button class="btn" onclick="openPopup('https://dartpad.dev/29daa42f713a908e2f0a38c69fbcfbe5')">Lihat DartPad</button>
+<button class="btn" onclick="openPopup('https://dartpad.dev/29daa42f713a908e2f0a38c69fbcfbe5?run=true')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>7. Getter & Setter dengan Validasi</h2>
 <p>Getter dan setter dapat digunakan untuk menambahkan validasi agar data yang dimasukkan sesuai aturan.</p>
-<button class="btn" onclick="openPopup('https://dartpad.dev/f7092a32305dd71a0c3bc7877d161677')">Lihat DartPad</button>
+<button class="btn" onclick="openPopup('https://dartpad.dev/f7092a32305dd71a0c3bc7877d161677?run=true')">Lihat DartPad</button>
 </div>
 
 <div class="card">
 <h2>8. Encapsulation (Login System)</h2>
 <p>Encapsulation adalah konsep OOP yang membungkus data dan method dalam satu class serta membatasi akses langsung ke data tersebut.</p>
-<button class="btn" onclick="openPopup('https://dartpad.dev/32a23520da0534cdb9edc41e81b2514e')">Lihat DartPad</button>
+<button class="btn" onclick="openPopup('https://dartpad.dev/32a23520da0534cdb9edc41e81b2514e?run=true')">Lihat DartPad</button>
 </div>
 
 </div>
