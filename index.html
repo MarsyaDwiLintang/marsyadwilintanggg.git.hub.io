@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Laporan OOP Dart - Marsya Dwi Lintang</title>
+<title>Laporan OOP Dart</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -18,23 +19,21 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background: linear-gradient(135deg,#020024,#090979,#00d4ff);
-min-height:100vh;
+background:#070a44;
 color:white;
 padding:40px 20px;
 }
 
-/* Header */
+/* HEADER */
 
 header{
 text-align:center;
-margin-bottom:40px;
+margin-bottom:50px;
 }
 
 header h1{
-font-size:38px;
+font-size:42px;
 font-weight:700;
-letter-spacing:2px;
 }
 
 header p{
@@ -42,62 +41,67 @@ opacity:0.8;
 margin-top:10px;
 }
 
-/* Container */
+/* CONTAINER */
 
 .container{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
-display:grid;
-grid-template-columns:1fr;
+display:flex;
+flex-direction:column;
 gap:30px;
 }
 
-/* Card */
+/* CARD */
 
 .card{
-background:rgba(255,255,255,0.08);
-backdrop-filter: blur(10px);
-border-radius:15px;
-padding:20px;
+background:#1c1f6e;
+padding:30px;
+border-radius:18px;
 box-shadow:0 10px 30px rgba(0,0,0,0.4);
-transition:0.3s;
 }
 
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 40px rgba(0,0,0,0.6);
-}
+/* TITLE */
 
 .card h2{
-margin-bottom:15px;
-font-size:20px;
-color:#9be7ff;
+color:#78dcff;
+margin-bottom:10px;
 }
 
-iframe{
-width:100%;
-height:420px;
-border:none;
-border-radius:10px;
+/* TEXT */
+
+.card p{
+line-height:1.7;
+opacity:0.9;
+margin-bottom:10px;
 }
 
-/* Responsive */
+/* LIST */
 
-@media (min-width:900px){
-
-.container{
-grid-template-columns:1fr;
+ul{
+margin-left:20px;
+line-height:1.7;
+margin-top:10px;
 }
 
+/* BUTTON */
+
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:8px 14px;
+background:#00aaff;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-size:14px;
 }
 
-footer{
-margin-top:50px;
-text-align:center;
-opacity:0.7;
+.btn:hover{
+background:#008ecc;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -109,72 +113,72 @@ opacity:0.7;
 
 <div class="container">
 
-  <section>
-    <h2>O1. Pengertian Enkapsulasi</h2>
-    <p>
-      Enkapsulasi (encapsulation) adalah metode dalam pemrograman berorientasi objek (OOP) untuk membungkus data (variabel) 
-      dan metode (fungsi) yang memanipulasi data tersebut ke dalam satu unit tunggal, yaitu kelas. Prinsip ini menyembunyikan detail 
-      implementasi internal dan melindungi data dari akses atau modifikasi yang tidak sah dari luar, meningkatkan keamanan serta menjaga integritas kode.
-    </p>
-  </section>
+<div class="card">
+<h2>01. Pengertian Enkapsulasi</h2>
+<p>
+Enkapsulasi adalah konsep dalam Object Oriented Programming (OOP) yang digunakan untuk menyembunyikan data dan hanya memberikan akses melalui method tertentu.
+</p>
+</div>
 
-   <section>
-    <h2>02. Constructor Mobil</h2>
+<div class="card">
+<h2>02. Tujuan Enkapsulasi</h2>
+<ul>
+<li>Melindungi data</li>
+<li>Mengontrol akses terhadap data</li>
+<li>Membuat program lebih aman</li>
+<li>Di Dart dilakukan dengan: Private Field (_), Getter, dan Setter</li>
+</ul>
+</div>
 
-    <P>
-    Constructor adalah method khusus pada class yang digunakan untuk membuat objek dan menginisialisasi nilai awal atribut.
-    Dalam Dart terdapat constructor biasa dan named constructor, yaitu constructor dengan nama tertentu yang digunakan untuk 
-    membuat objek dengan cara atau kondisi yang berbeda.
-    </P>
-
-    <div class="code-container"?
-      <div class="code-header">DART SOURCE CODE</div>
-      <pre><code>
-        
-      </code></pre>
-<iframe src="https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70"></iframe>
+<div class="card">
+<h2>1. Constructor Mobil</h2>
+<p>Constructor adalah method khusus pada class yang digunakan untuk membuat objek dan menginisialisasi nilai awal atribut.</p>
+<a class="btn" href="https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70" target="_blank">Lihat DartPad</a>
 </div>
 
 <div class="card">
 <h2>2. Const Constructor</h2>
-<iframe src="https://dartpad.dev/40cdc2f435ceca07ddaca0c3131d94c6"></iframe>
+<p>Const constructor digunakan untuk membuat objek konstan sehingga nilai objek tidak dapat diubah setelah dibuat.</p>
+<a class="btn" href="https://dartpad.dev/40cdc2f435ceca07ddaca0c3131d94c6" target="_blank">Lihat DartPad</a>
 </div>
 
 <div class="card">
 <h2>3. Initializer List</h2>
-<iframe src="https://dartpad.dev/607f6fe45706915f6be46629fb1303c9"></iframe>
+<p>Initializer list digunakan untuk menginisialisasi variabel sebelum constructor dijalankan.</p>
+<a class="btn" href="https://dartpad.dev/607f6fe45706915f6be46629fb1303c9" target="_blank">Lihat DartPad</a>
 </div>
 
 <div class="card">
 <h2>4. Private Variable</h2>
-<iframe src="https://dartpad.dev/adccd4fbb13219cc689274f6de55bf79"></iframe>
+<p>Private variable adalah variabel yang hanya dapat diakses di dalam class dengan menggunakan tanda underscore (_).</p>
+<a class="btn" href="https://dartpad.dev/adccd4fbb13219cc689274f6de55bf79" target="_blank">Lihat DartPad</a>
 </div>
 
 <div class="card">
 <h2>5. Getter</h2>
-<iframe src="https://dartpad.dev/884cf73ac193f066ca179710db4ebc68"></iframe>
+<p>Getter adalah method yang digunakan untuk mengambil nilai dari variabel private.</p>
+<a class="btn" href="https://dartpad.dev/884cf73ac193f066ca179710db4ebc68" target="_blank">Lihat DartPad</a>
 </div>
 
 <div class="card">
 <h2>6. Setter</h2>
-<iframe src="https://dartpad.dev/29daa42f713a908e2f0a38c69fbcfbe5"></iframe>
+<p>Setter adalah method yang digunakan untuk mengubah nilai dari variabel private.</p>
+<a class="btn" href="https://dartpad.dev/29daa42f713a908e2f0a38c69fbcfbe5" target="_blank">Lihat DartPad</a>
 </div>
 
 <div class="card">
-<h2>7. Getter & Setter Validasi</h2>
-<iframe src="https://dartpad.dev/f7092a32305dd71a0c3bc7877d161677"></iframe>
+<h2>7. Getter & Setter dengan Validasi</h2>
+<p>Getter dan setter dapat digunakan untuk menambahkan validasi agar data yang dimasukkan sesuai aturan.</p>
+<a class="btn" href="https://dartpad.dev/f7092a32305dd71a0c3bc7877d161677" target="_blank">Lihat DartPad</a>
 </div>
 
 <div class="card">
-<h2>8. Encapsulation Login</h2>
-<iframe src="https://dartpad.dev/32a23520da0534cdb9edc41e81b2514e"></iframe>
+<h2>8. Encapsulation (Login System)</h2>
+<p>Encapsulation adalah konsep OOP yang membungkus data dan method dalam satu class serta membatasi akses langsung ke data tersebut.</p>
+<a class="btn" href="https://dartpad.dev/32a23520da0534cdb9edc41e81b2514e" target="_blank">Lihat DartPad</a>
 </div>
 
 </div>
-
-<footer>
-<p>© 2026 OOP Dart Project</p>
-</footer>
 
 </body>
 </html>
