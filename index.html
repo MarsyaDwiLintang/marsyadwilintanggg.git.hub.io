@@ -142,6 +142,31 @@ color:white;
 cursor:pointer;
 }
 
+/* CODE BOX */
+
+.code-box{
+background:black;
+padding:25px;
+border-radius:20px;
+width:350px;
+margin:auto;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+border:2px solid #00cfff;
+}
+
+.code-box h3{
+color:#ccc;
+text-align:center;
+margin-bottom:15px;
+}
+
+pre{
+color:#00ff99;
+font-family:monospace;
+font-size:14px;
+text-shadow:0 0 5px #00ff99;
+}
+
 @media(max-width:768px){
 
 header h1{
@@ -217,6 +242,37 @@ Enkapsulasi adalah konsep dalam Object Oriented Programming (OOP) yang digunakan
 <p>Constructor dasar merupakan fungsi khusus di dalam sebuah class yang berfungsi untuk memberikan nilai awal pada atribut ketika sebuah objek dibuat.
 Constructor memiliki nama yang sama dengan class dan akan dipanggil secara otomatis saat objek dibuat, sehingga data pada objek dapat langsung diinisialisasi sejak awal. 
 Berikut contoh penerapan class buku dengan constructors dasar pada dartpad</p>
+
+<div class="card">
+<h2>Preview Source Code</h2>
+
+<div class="code-box">
+
+<h3>DART SOURCE CODE</h3>
+
+<pre>
+// Nama  : Marsya Dwi Lintang
+// NIM   : 251410028
+// Kelas : SI2A
+
+class Buku {
+  String judul;
+
+  // constructor
+  Buku(this.judul);
+
+}
+
+void main() {
+  var buku1 = Buku("Pemrograman Berorientasi Objek");
+  print(buku1.judul);
+
+}
+</pre>
+
+</div>
+
+</div>
 <button class="btn" onclick="openPopup('https://dartpad.dev/09d171ec421ff3c86f89987c45da0a1a?run=true')">Lihat DartPad</button>
 </div>
   
