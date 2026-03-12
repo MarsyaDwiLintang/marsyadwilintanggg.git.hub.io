@@ -514,17 +514,19 @@ void main() {
 // NIM   : 251410028
 // Kelas : SI2A
 
-class Buku {
-  String judul;
+class Person {
+  String _name;
+  int age;
 
-  // constructor
-  Buku(this.judul);
-
+  Person(this._name, this.age);
 }
 
 void main() {
-  var buku1 = Buku("Pemrograman Berorientasi Objek");
-  print(buku1.judul);
+
+  Person person = Person("Marsya", 20);
+
+  print(person._name);
+  print(person.age);
 
 }
 </pre>
@@ -548,18 +550,27 @@ void main() {
 // NIM   : 251410028
 // Kelas : SI2A
 
-class Buku {
-  String judul;
+class Person {
+  String _name;
+  int age;
 
-  // constructor
-  Buku(this.judul);
+  Person(this._name, this.age);
 
+  String get getName1 {
+    return _name;
+  }
+
+  String getName() {
+    return _name;
+  }
 }
 
 void main() {
-  var buku1 = Buku("Pemrograman Berorientasi Objek");
-  print(buku1.judul);
+  Person person = Person("Marsya", 19);
 
+  print(person.age);
+  print(person.getName());
+  print(person.getName1);
 }
 </pre>
 
@@ -582,18 +593,33 @@ void main() {
 // NIM   : 251410028
 // Kelas : SI2A
 
-class Buku {
-  String judul;
+class Person {
+  String _name;
+  int age;
 
-  // constructor
-  Buku(this.judul);
+  Person(this._name, this.age);
 
+  set setName1(String name) {
+    _name = name;
+  }
+
+  void setName(String name) {
+    _name = name;
+  }
+
+  String getName() {
+    return _name;
+  }
 }
 
 void main() {
-  var buku1 = Buku("Pemrograman Berorientasi Objek");
-  print(buku1.judul);
+  Person person = Person("Marsya", 20);
 
+  person.setName('Dwi');
+  print(person.getName());
+
+  person.setName1 = 'Lintang';
+  print(person.getName());
 }
 </pre>
 
@@ -612,22 +638,46 @@ void main() {
 <h3>DART SOURCE CODE</h3>
 
 <pre>
-// Nama  : Marsya Dwi Lintang
-// NIM   : 251410028
-// Kelas : SI2A
+class Produk {
+  String _nama;
+  double _harga;
 
-class Buku {
-  String judul;
+  Produk(this._nama, this._harga);
 
-  // constructor
-  Buku(this.judul);
+  String get nama => _nama;
+  double get harga => _harga;
 
+  set nama(String value) {
+    if (value.length >= 3) {
+      _nama = value;
+    } else {
+      print('Nama minimal 3 karakter');
+    }
+  }
+
+  set harga(double value) {
+    if (value > 0) {
+      _harga = value;
+    } else {
+      print('Harga harus lebih besar dari 0');
+    }
+  }
 }
 
 void main() {
-  var buku1 = Buku("Pemrograman Berorientasi Objek");
-  print(buku1.judul);
+  var produk1 = Produk('Monitor Samsung', 5500.0);
 
+  print(produk1.nama);
+  print(produk1.harga);
+
+  produk1.nama = 'Keyboard Mekanik';
+  produk1.harga = 6200.0;
+
+  print(produk1.nama);
+  print(produk1.harga);
+
+  produk1.nama = 'TV';
+  produk1.harga = -100;
 }
 </pre>
 
@@ -652,17 +702,61 @@ dan email harus mengandung @, sehingga data lebih aman dan terkontrol.</p>
 // NIM   : 251410028
 // Kelas : SI2A
 
-class Buku {
-  String judul;
+class User {
+  String _username;
+  String _password;
+  String _email;
+  
+  User(this._username, this._password, this._email);
 
-  // constructor
-  Buku(this.judul);
+  String get username => _username;
+  String get password => _password;
+  String get email => _email;
+
+  set username(String value) {
+    if (value.length >= 5) {
+      _username = value;
+    } else {
+      print("Username minimal 5 karakter");
+    }
+
+  }
+
+  set password(String value) {
+    if (value.length >= 8) {
+      _password = value;
+    } else {
+      print("Password minimal 8 karakter");
+    }
+
+  }
+
+  set email(String value) {
+    if (value.contains("@")) {
+      _email = value;
+    } else {
+      print("Email harus mengandung '@'");
+
+    }
+
+  }
 
 }
 
 void main() {
-  var buku1 = Buku("Pemrograman Berorientasi Objek");
-  print(buku1.judul);
+  var user1 = User("marsya123", "password123", "marsya@email.com");
+  print("Username: ${user1.username}");
+  print("Password: ${user1.password}");
+  print("Email: ${user1.email}");
+  print("\n--- Update Data ---");
+
+  user1.username = "lintanggg";
+  user1.password = "12345678";
+  user1.email = "lintang@gmail.com";
+  
+  print("Username baru: ${user1.username}");
+  print("Password baru: ${user1.password}");
+  print("Email baru: ${user1.email}");
 
 }
 </pre>
@@ -686,18 +780,40 @@ void main() {
 // NIM   : 251410028
 // Kelas : SI2A
 
-class Buku {
-  String judul;
+class User {
+  String _username;
+  String _password;
 
-  // constructor
-  Buku(this.judul);
+  User(this._username, this._password);
 
+  String get username => _username;
+
+  bool login(String username, String password) {
+    return _username == username && _password == password;
+  }
+
+  void gantiPassword(String lama, String baru) {
+    if (_password == lama) {
+      if (baru.length >= 8) {
+        _password = baru;
+        print('Password berhasil diubah');
+      } else {
+        print('Password minimal 8 karakter');
+      }
+    } else {
+      print('Password lama salah');
+    }
+  }
 }
 
 void main() {
-  var buku1 = Buku("Pemrograman Berorientasi Objek");
-  print(buku1.judul);
+  final user1 = User('admin_user', 'password0443');
 
+  if (user1.login('admin_user', 'password0443')) {
+    print('Login berhasil');
+  }
+
+  user1.gantiPassword('password0443', 'newPassword456');
 }
 </pre>
 
