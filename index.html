@@ -844,17 +844,46 @@ Class ini memiliki method deposit(), tarik(), dan cekSaldo() untuk melakukan tra
 // NIM   : 251410028
 // Kelas : SI2A
 
-class Buku {
-  String judul;
+class RekeningBank {
 
-  // constructor
-  Buku(this.judul);
+  String _nomorRekening;
+  double _saldo;
+
+  RekeningBank(this._nomorRekening, this._saldo);
+
+  void cekSaldo() {
+    print("Nomor Rekening: $_nomorRekening");
+    print("Saldo saat ini: Rp $_saldo");
+  }
+
+  void deposit(double jumlah) {
+    if (jumlah > 0) {
+      _saldo += jumlah;
+      print("Deposit berhasil: Rp $jumlah");
+    } else {
+      print("Jumlah deposit harus lebih dari 0");
+    }
+  }
+
+  void tarik(double jumlah) {
+    if (jumlah > 0 && jumlah <= _saldo) {
+      _saldo -= jumlah;
+      print("Penarikan berhasil: Rp $jumlah");
+    } else {
+      print("Saldo tidak cukup atau jumlah tidak valid");
+    }
+  }
 
 }
 
 void main() {
-  var buku1 = Buku("Pemrograman Berorientasi Objek");
-  print(buku1.judul);
+
+  RekeningBank rekening1 = RekeningBank("123456789", 1000000);
+
+  rekening1.cekSaldo();
+  rekening1.deposit(500000);
+  rekening1.tarik(300000);
+  rekening1.cekSaldo();
 
 }
 </pre>
