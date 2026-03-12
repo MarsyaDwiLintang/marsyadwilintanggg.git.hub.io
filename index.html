@@ -230,8 +230,28 @@ Enkapsulasi adalah konsep dalam Object Oriented Programming (OOP) yang digunakan
 <div class="card">
 <h2>2. Const Constructor</h2>
 <p>Const constructor digunakan untuk membuat objek konstan sehingga nilai objek tidak dapat diubah setelah dibuat.</p>
+<div class="code-container">
+      <div class="code-header">DART SOURCE CODE</div>
+      <pre><code>class Warna {
+  final int r, g, b;
+  const Warna(this.r, this.g, this.b);
+
+  @override
+  String toString() {
+    return 'Warna(r: $r, g: $g, b: $b)';
+  }
+}
+
+void main() {
+  const merah = Warna(255, 0, 0);
+  const merahLagi = Warna(255, 0, 0);
+
+  print(merah);
+  print(merahLagi);
+}
 <button class="btn" onclick="openPopup('https://dartpad.dev/40cdc2f435ceca07ddaca0c3131d94c6?run=true')">Lihat DartPad</button>
 </div>
+
 
 <div class="card">
 <h2>3. Initializer List</h2>
