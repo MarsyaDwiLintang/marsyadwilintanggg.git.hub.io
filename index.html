@@ -166,6 +166,7 @@ border-radius:20px;
 width:350px;
 margin:auto;
 box-shadow:0 0 20px rgba(0,0,0,0.5);
+border:2px solid #00cfff;
 }
 
 .code-box h3{
@@ -224,7 +225,61 @@ Enkapsulasi adalah konsep dalam Object Oriented Programming (OOP) yang digunakan
 <div class="card">
 <h2>1. Constructor Mobil</h2>
 <p>Constructor adalah method khusus pada class yang digunakan untuk membuat objek dan menginisialisasi nilai awal atribut.</p>
+<div class="code-box">
+<h3>DART SOURCE CODE</h3>
+<pre><code>// Nama  : Marsya Dwi Lintang
+// NIM   : 251410028
+// Kelas : SI2A
+
+
+import 'dart:convert';
+
+class Mobil {
+  String? merk;
+  int? tahun;
+
+  // Parameterized constructor
+  Mobil(this.merk, this.tahun);
+
+  // Named constructor
+  Mobil.baru() {
+    merk = 'Toyota';
+    tahun = 2023;
+  }
+
+  // Named constructor dengan parameter
+  Mobil.dariJson(Map<String, dynamic> json) {
+    merk = json['merk'];
+    tahun = json['tahun'];
+  }
+
+  @override
+  String toString() {
+    return 'Mobil{merk: $merk, tahun: $tahun}';
+  }
+}
+
+void main() {
+  print('--- Demonstrasi Class Mobil ---');
+
+  var mobilA = Mobil('Honda', 2020);
+  print('Mobil A: $mobilA');
+
+  var mobilB = Mobil.baru();
+  print('Mobil B: $mobilB');
+
+  String jsonString = '{"merk": "Suzuki", "tahun": 2021}';
+  Map<String, dynamic> jsonData = jsonDecode(jsonString);
+  var mobilC = Mobil.dariJson(jsonData);
+  print('Mobil C: $mobilC');
+
+  Map<String, dynamic> anotherJsonData = {'merk': 'Mitsubishi', 'tahun': 2022};
+  var mobilD = Mobil.dariJson(anotherJsonData);
+  print('Mobil D: $mobilD');
+}</code></pre>
+
 <button class="btn" onclick="openPopup('https://dartpad.dev/7cf3b434e898084aa16d711f9069bd70?run=true')">Lihat DartPad</button>
+
 </div>
 
 <div class="card">
